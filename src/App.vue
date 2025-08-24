@@ -4,7 +4,7 @@ import { sleep } from '@mid-vue/shared'
 import { hideHtmlLoading } from './use'
 
 async function hideLoading() {
-  await sleep(300)
+  await sleep(500)
   // 图片加载完成后执行的代码
   hideHtmlLoading()
 }
