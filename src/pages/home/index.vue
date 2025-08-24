@@ -10,7 +10,19 @@ export default defineComponent({
 
     return () => (
       <div class='home'>
-        <video src={bgVideo} autoplay muted></video>
+        <video
+          autoplay
+          muted
+          preload='auto'
+          controls={false}
+          x5-video-player-type='h5'
+          x5-video-orientation='h5'
+          x5-video-player-fullscreen='true'
+          class='home-bg-video'
+          x5-playsinline='true'
+        >
+          <source src={bgVideo} type='video/mp4' />
+        </video>
       </div>
     )
   }
