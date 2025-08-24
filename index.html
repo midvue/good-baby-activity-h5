@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+
+    <title>运力营销h5</title>
+    <style>
+      #vts-global-page {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background-color: #fff2e5;
+        z-index: 3000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .vts-global-loading {
+        width: 163px;
+        height: 22px;
+        border-radius: 12px;
+        color: #ff7b56;
+        border: 1px solid #ff7b56;
+        position: relative;
+      }
+
+      .vts-global-loading::before {
+        content: '';
+        position: absolute;
+        margin: 2px;
+        inset: 0 100% 0 0;
+        border-radius: inherit;
+        background: currentColor;
+        animation: loading-progress 1s infinite;
+      }
+
+      @keyframes loading-progress {
+        100% {
+          inset: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="vts-global-page">
+      <div class="vts-global-loading"></div>
+    </div>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+  </body>
+  <script>
+    if (
+      window.location.hash.includes('/dialog-page') ||
+      window.location.hash.includes('/welfare-center')
+    ) {
+      const loadingDom = document.getElementById('vts-global-page')
+      if (loadingDom) {
+        loadingDom.style.display = 'none'
+      }
+    }
+  </script>
+</html>

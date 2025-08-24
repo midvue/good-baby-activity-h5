@@ -1,0 +1,8 @@
+{
+  "root": true,
+  "extends": ["@mid-vue"],
+  "ignorePatterns": ["/types/"],
+  "globals": {
+    "$CDN_BASE_URL": "readonly"
+  }
+}

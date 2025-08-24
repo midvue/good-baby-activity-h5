@@ -1,0 +1,12 @@
+packages:
+  - packages/*
+  - components/**
+  - '!**/test/**'
+
+ignoredBuiltDependencies:
+  - core-js
+  - esbuild
+
+publicHoistPattern:
+  - '*eslint*'
+  - '*prettier*'
