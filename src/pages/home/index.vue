@@ -1,24 +1,44 @@
 <script lang="tsx">
-import { defineComponent } from 'vue'
+import { defineComponent, reactive } from 'vue'
+import { isWeChat, sleep } from '@mid-vue/shared'
 import { hideHtmlLoading } from '@/use'
-import bgVideo from './assets/bg-video.mp4'
+import imgBtnAccept from './assets/img-btn-accept.png'
 
 export default defineComponent({
   setup() {
+    const state = reactive({
+      isShowDetail: false,
+      isShowCover: false
+    })
+    if (isWeChat()) {
+      state.isShowCover = true
+    }
+
+    const playVideo = () => {
+      document.getElementById('home-bg-video')?.play()
+    }
+
     return () => (
       <div class='home'>
         <video
           autoplay
           muted
           preload='auto'
-          controls='true'
+          controls={false}
+          id='home-bg-video'
           class='home-bg-video'
-          x5-playsinline='true'
+          playsinline={false}
+          x5-playsinline={false}
+          x5-video-player-start='true'
           x5-video-player-type='h5'
           x5-video-orientation='h5'
           x5-video-player-fullscreen='true'
+          v-show={!state.isShowDetail && !state.isShowCover}
           onended={() => {
             console.log('视频播放结束')
+            sleep(300).then(() => {
+              state.isShowDetail = true
+            })
           }}
           onError={() => {
             console.log('视频播放失败')
@@ -31,9 +51,36 @@ export default defineComponent({
             console.log('视频开始加载')
           }}
         >
-          <source src={bgVideo} type='video/mp4' />
+          <source src={$CDN_BASE_URL + 'bg-video.mp4'} type='video/mp4' />
           不支持视频播放
         </video>
+        <img
+          v-show={state.isShowDetail}
+          src={$CDN_BASE_URL + 'bg-detail.jpg'}
+          alt=''
+          class='home-bg-detail'
+        />
+        <img
+          v-show={state.isShowCover}
+          src={$CDN_BASE_URL + 'bg-cover.jpg'}
+          alt=''
+          class='home-bg-detail'
+          onLoad={hideHtmlLoading}
+          onClick={() => {
+            playVideo()
+            state.isShowCover = false
+          }}
+        />
+        <img
+          v-show={state.isShowCover}
+          src={imgBtnAccept}
+          alt=''
+          class='home-btn'
+          onClick={() => {
+            playVideo()
+            state.isShowCover = false
+          }}
+        />
       </div>
     )
   }
