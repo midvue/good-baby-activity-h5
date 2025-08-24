@@ -15,11 +15,11 @@ export default defineComponent({
           muted
           preload='auto'
           controls={false}
+          class='home-bg-video'
+          x5-playsinline='true'
           x5-video-player-type='h5'
           x5-video-orientation='h5'
           x5-video-player-fullscreen='true'
-          class='home-bg-video'
-          x5-playsinline='true'
         >
           <source src={bgVideo} type='video/mp4' />
         </video>
