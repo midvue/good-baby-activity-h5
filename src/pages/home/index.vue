@@ -3,6 +3,7 @@ import { defineComponent, reactive } from 'vue'
 import { isWeChat, sleep } from '@mid-vue/shared'
 import { hideHtmlLoading } from '@/use'
 import imgBtnAccept from './assets/img-btn-accept.png'
+import { AudioPlayer } from './components/audio-player'
 
 export default defineComponent({
   setup() {
@@ -15,7 +16,8 @@ export default defineComponent({
     }
 
     const playVideo = () => {
-      document.getElementById('home-bg-video')?.play()
+      const video = document.getElementById('home-bg-video') as HTMLVideoElement
+      video?.play()
     }
 
     return () => (
@@ -34,7 +36,7 @@ export default defineComponent({
           x5-video-orientation='h5'
           x5-video-player-fullscreen='true'
           v-show={!state.isShowDetail && !state.isShowCover}
-          onended={() => {
+          onEnded={() => {
             console.log('视频播放结束')
             sleep(300).then(() => {
               state.isShowDetail = true
@@ -43,11 +45,11 @@ export default defineComponent({
           onError={() => {
             console.log('视频播放失败')
           }}
-          onLoadedData={() => {
+          onLoadeddata={() => {
             hideHtmlLoading()
             console.log('视频加载完成')
           }}
-          onloadstart={() => {
+          onLoadstart={() => {
             console.log('视频开始加载')
           }}
         >
@@ -81,6 +83,7 @@ export default defineComponent({
             state.isShowCover = false
           }}
         />
+        <AudioPlayer />
       </div>
     )
   }

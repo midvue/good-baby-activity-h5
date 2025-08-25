@@ -12,6 +12,7 @@
     "@mid-vue/http-client": "^0.0.5",
     "@mid-vue/shared": "^0.0.5",
     "@mid-vue/use": "^0.0.1",
+    "howler": "^2.2.4",
     "vconsole": "3.15.1",
     "vue": "^3.5.18",
     "vue-router": "^4.5.1"
@@ -20,6 +21,7 @@
     "@mid-vue/eslint-config": "^0.0.1",
     "@mid-vue/tsconfig": "^0.0.1",
     "@mid-vue/vite-config": "^0.0.1",
+    "@types/howler": "^2.2.12",
     "autoprefixer": "^10.4.19",
     "consola": "^3.2.3",
     "postcss-px-to-viewport-8-plugin": "^1.2.5",
