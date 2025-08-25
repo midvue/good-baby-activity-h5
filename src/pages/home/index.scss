@@ -166,14 +166,18 @@
       width: 61px;
       height: 73px;
       z-index: 8;
-      animation: cloud-move-left 2s ease-in-out forwards;
+      animation:
+        cloud-move-left 2s ease-in-out forwards,
+        float 5s ease-in-out infinite;
     }
     .img-cloud-02 {
       top: 165px;
       left: 252px;
       width: 62px;
       height: 66px;
-      animation: cloud-move-right 2s ease-in-out forwards;
+      animation:
+        cloud-move-right 2s ease-in-out forwards,
+        float 5s ease-in-out infinite;
       z-index: 8;
     }
     .img-cloud-03 {
@@ -182,7 +186,9 @@
       width: 107px;
       height: 121px;
       z-index: 8;
-      animation: cloud-move-left 2s ease-in-out forwards;
+      animation:
+        cloud-move-left 2s ease-in-out forwards,
+        float 5s ease-in-out infinite;
     }
     .img-cloud-04 {
       top: 390px;
@@ -190,14 +196,15 @@
       width: 117px;
       height: 124px;
       z-index: 8;
-      animation: cloud-move-right 2s ease-in-out forwards;
+      animation:
+        cloud-move-right 2s ease-in-out forwards,
+        float 5s ease-in-out infinite;
     }
     .img-first-name {
       top: 255px;
       left: 67px;
       width: 242px;
       height: 242px;
-      animation: float 5s ease-in-out infinite;
     }
   }
 }

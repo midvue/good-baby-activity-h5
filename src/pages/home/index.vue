@@ -1,6 +1,6 @@
 <script lang="tsx">
 import { defineComponent, reactive } from 'vue'
-import { isWeChat, sleep } from '@mid-vue/shared'
+import { sleep } from '@mid-vue/shared'
 import { hideHtmlLoading } from '@/use'
 
 import { AudioPlayer } from './components/audio-player'
@@ -10,12 +10,9 @@ export default defineComponent({
   setup() {
     const state = reactive({
       isShowDetail: false,
-      isShowCover: false
+      isShowCover: true
     })
-    // if (isWeChat()) {
-    //   state.isShowCover = true
-    // }
-    state.isShowCover = true
+
     const playVideo = () => {
       const video = document.getElementById('home-bg-video') as HTMLVideoElement
       video?.play()
