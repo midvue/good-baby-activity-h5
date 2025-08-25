@@ -1,7 +1,6 @@
 <script lang="tsx">
 import { defineComponent, reactive } from 'vue'
 import { sleep } from '@mid-vue/shared'
-import { hideHtmlLoading } from '@/use'
 
 import { AudioPlayer } from './components/audio-player'
 import { useLandingPage } from './hooks'
@@ -49,7 +48,6 @@ export default defineComponent({
             console.log('视频播放失败')
           }}
           onLoadeddata={() => {
-            hideHtmlLoading()
             console.log('视频加载完成')
           }}
           onLoadstart={() => {
@@ -65,17 +63,6 @@ export default defineComponent({
           alt=''
           class='home-bg-detail'
         />
-        {/* <img
-          v-show={state.isShowCover}
-          src={$CDN_BASE_URL + 'bg-cover.jpg'}
-          alt=''
-          class='home-bg-detail'
-          onLoad={hideHtmlLoading}
-          onClick={() => {
-            playVideo()
-            state.isShowCover = false
-          }}
-        /> */}
 
         <AudioPlayer />
         {state.isShowCover && renderLandPae()}
