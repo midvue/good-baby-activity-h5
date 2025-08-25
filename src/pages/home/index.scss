@@ -1,7 +1,7 @@
 .home {
   width: 100%;
   height: 100%;
-  background: red;
+  background: linear-gradient(107deg, #d51917 0%, #f4422f 100%);
   .home-bg-video {
     height: 100%;
     width: 100%;
@@ -26,9 +26,178 @@
   @keyframes btnMove {
     0% {
       transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 1;
     }
     100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fireworks-appear {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    50% {
+      opacity: 1;
       transform: scale(1.2);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes cloud-move-left {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes cloud-move-right {
+    0% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes text-appear {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-5px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  .home-landing-page {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    .landing-img {
+      position: absolute;
+      object-fit: cover;
+    }
+    .img-fireworks-00 {
+      top: -49px;
+      left: -52px;
+      width: 105px;
+      height: 98px;
+      animation: fireworks-appear 3s ease-in-out infinite;
+    }
+    .img-fireworks-01 {
+      top: 15px;
+      left: 256px;
+      width: 105px;
+      height: 98px;
+      animation: fireworks-appear 3.5s ease-in-out infinite;
+    }
+    .img-fireworks-02 {
+      top: 99px;
+      left: 8px;
+      width: 172px;
+      height: 161px;
+      opacity: 0.5;
+      animation: fireworks-appear 4s ease-in-out infinite;
+    }
+    .img-fireworks-03 {
+      top: 171px;
+      left: 256px;
+      width: 119px;
+      height: 124px;
+      animation: fireworks-appear 3.2s ease-in-out infinite;
+    }
+    .img-fireworks-04 {
+      top: 421px;
+      left: 16px;
+      width: 133px;
+      height: 124px;
+      animation: fireworks-appear 4.5s ease-in-out infinite;
+    }
+
+    .img-title-01 {
+      top: 66px;
+      left: 62px;
+      width: 251px;
+      height: 64px;
+      z-index: 9;
+      animation: text-appear 1s ease-out forwards;
+    }
+    .img-title-02 {
+      top: 146px;
+      left: 125px;
+      width: 126px;
+      height: 64px;
+      z-index: 9;
+      animation: text-appear 1s ease-out forwards;
+    }
+    .img-cloud-01 {
+      top: 90px;
+      left: 0px;
+      width: 61px;
+      height: 73px;
+      z-index: 8;
+      animation: cloud-move-left 2s ease-in-out forwards;
+    }
+    .img-cloud-02 {
+      top: 165px;
+      left: 252px;
+      width: 62px;
+      height: 66px;
+      animation: cloud-move-right 2s ease-in-out forwards;
+      z-index: 8;
+    }
+    .img-cloud-03 {
+      top: 277px;
+      left: 16px;
+      width: 107px;
+      height: 121px;
+      z-index: 8;
+      animation: cloud-move-left 2s ease-in-out forwards;
+    }
+    .img-cloud-04 {
+      top: 390px;
+      left: 243px;
+      width: 117px;
+      height: 124px;
+      z-index: 8;
+      animation: cloud-move-right 2s ease-in-out forwards;
+    }
+    .img-first-name {
+      top: 255px;
+      left: 67px;
+      width: 242px;
+      height: 242px;
+      animation: float 5s ease-in-out infinite;
     }
   }
 }

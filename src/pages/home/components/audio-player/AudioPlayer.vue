@@ -1,50 +1,61 @@
 E
 <template>
-  <div :class="['audio-player', { playing: state.isPlaying }]" @click="onPlayClick">
-    <audio
-      ref="audioRef"
-      :src="state.url"
-      preload="auto"
-      autoplay
-      loop
-      :controls="false"
-      id="player-audio"
-      :playsinline="true"
-      :x5-playsinline="true"
-      @loadeddata="onLoadedData"
-    ></audio>
-  </div>
+  <div :class="['audio-player', { playing: state.isPlaying }]" @click="onPlayClick"></div>
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { onBeforeUnmount, onMounted, reactive } from 'vue'
 import { Howl } from 'howler'
+import { usePageVisibility } from '@mid-vue/use'
 
 defineOptions({
   name: 'AudioPlayer'
 })
 
-const audioRef = ref<HTMLAudioElement>()
-
 const state = reactive({
-  url: `${$CDN_BASE_URL}bg-audio.mp3`,
   isPlaying: false
 })
 
-const sound = new Howl({
+let sound = new Howl({
   src: [`${$CDN_BASE_URL}bg-audio.mp3`],
-  autoplay: true,
-  loop: true
+  loop: true,
+  onload: () => {
+    console.log('load')
+    sound.play()
+    state.isPlaying = true
+  },
+  onpause: () => {
+    console.log('pause')
+    state.isPlaying = false
+  },
+  onplay: () => {
+    console.log('play')
+    state.isPlaying = true
+  }
 })
 
-sound.on('play', () => {
-  console.log('play')
+onMounted(() => {
+  sound.play()
   state.isPlaying = true
 })
 
-const onLoadedData = () => {
-  state.isPlaying = true
-}
+onBeforeUnmount(() => {
+  sound.stop()
+  sound.unload()
+  //@ts-ignore
+  sound = null
+})
+
+const { onPageShow, onPageHidden } = usePageVisibility()
+
+onPageShow(() => {
+  sound.play()
+})
+
+onPageHidden(() => {
+  sound.pause()
+})
+
 const onPlayClick = () => {
   state.isPlaying = !state.isPlaying
   if (state.isPlaying) {

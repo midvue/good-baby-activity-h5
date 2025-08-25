@@ -2,8 +2,9 @@
 import { defineComponent, reactive } from 'vue'
 import { isWeChat, sleep } from '@mid-vue/shared'
 import { hideHtmlLoading } from '@/use'
-import imgBtnAccept from './assets/img-btn-accept.png'
+
 import { AudioPlayer } from './components/audio-player'
+import { useLandingPage } from './hooks'
 
 export default defineComponent({
   setup() {
@@ -11,14 +12,19 @@ export default defineComponent({
       isShowDetail: false,
       isShowCover: false
     })
-    if (isWeChat()) {
-      state.isShowCover = true
-    }
-
+    // if (isWeChat()) {
+    //   state.isShowCover = true
+    // }
+    state.isShowCover = true
     const playVideo = () => {
       const video = document.getElementById('home-bg-video') as HTMLVideoElement
       video?.play()
     }
+
+    const { render: renderLandPae } = useLandingPage(() => {
+      playVideo()
+      state.isShowCover = false
+    })
 
     return () => (
       <div class='home'>
@@ -62,7 +68,7 @@ export default defineComponent({
           alt=''
           class='home-bg-detail'
         />
-        <img
+        {/* <img
           v-show={state.isShowCover}
           src={$CDN_BASE_URL + 'bg-cover.jpg'}
           alt=''
@@ -72,18 +78,10 @@ export default defineComponent({
             playVideo()
             state.isShowCover = false
           }}
-        />
-        <img
-          v-show={state.isShowCover}
-          src={imgBtnAccept}
-          alt=''
-          class='home-btn'
-          onClick={() => {
-            playVideo()
-            state.isShowCover = false
-          }}
-        />
+        /> */}
+
         <AudioPlayer />
+        {state.isShowCover && renderLandPae()}
       </div>
     )
   }
