@@ -19,6 +19,8 @@ const state = reactive({
 let sound = new Howl({
   src: [`${$CDN_BASE_URL}bg-audio.mp3`],
   loop: true,
+  autoplay: true,
+  preload: true,
   onload: () => {
     console.log('load')
     sound.play()
@@ -32,6 +34,13 @@ let sound = new Howl({
     console.log('play')
     state.isPlaying = true
   }
+})
+
+sound.on('load', () => {
+  window.WeixinJSBridge?.invoke('getNetworkType', {}, () => {
+    sound.play()
+    state.isPlaying = true
+  })
 })
 
 onMounted(() => {

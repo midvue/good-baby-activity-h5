@@ -59,7 +59,7 @@ export default defineComponent({
         </video>
         <img
           v-show={state.isShowDetail}
-          src={$CDN_BASE_URL + 'bg-detail.jpg'}
+          src={$CDN_BASE_URL + 'bg-detail1.jpg'}
           alt=''
           class='home-bg-detail'
         />
