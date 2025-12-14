@@ -27,7 +27,6 @@ export default defineComponent({
         style={{ background: state.isShowCover ? undefined : 'transparent' }}
       >
         <video
-          autoplay
           muted
           preload='auto'
           controls={false}
