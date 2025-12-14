@@ -1,0 +1,143 @@
+.birthday-80-241228 {
+  width: 100%;
+  height: 100%;
+  background: url($CDN_BASE_URL + 'birthday-80-241228/bg_main.jpg');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  .birthday-bg-video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  .bg-page1 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .birthday-btn {
+    width: 200px;
+    height: 45px;
+    position: absolute;
+    top: calc(50% + 170px);
+    left: calc(50% - 100px);
+    object-fit: contain;
+    z-index: 9;
+    animation: btnMove 1s ease-in-out infinite;
+  }
+
+  @keyframes btnMove {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fireworks-appear {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes cloud-move-left {
+    0% {
+      opacity: 0;
+      transform: translateX(-120%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes cloud-move-right {
+    0% {
+      opacity: 0;
+      transform: translateX(120%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes text-appear {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-5px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  .birthday-landing-page {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    .landing-img {
+      position: absolute;
+      object-fit: cover;
+    }
+
+    .img-cloud-left-01 {
+      top: 224px;
+      width: 100px;
+      height: 45px;
+      left: 10px;
+      z-index: 8;
+      animation:
+        cloud-move-left 2s ease-in-out forwards,
+        float 3s ease-in-out infinite;
+    }
+    .img-cloud-right-01 {
+      top: 185px;
+      left: 270px;
+      width: 100px;
+      height: 45px;
+      animation:
+        cloud-move-right 2s ease-in-out forwards,
+        float 3s ease-in-out infinite;
+      z-index: 8;
+    }
+
+    .img-title {
+      top: calc(50% - 139px);
+      left: 69px;
+      width: 231px;
+      height: 278px;
+      animation: text-appear 1s ease-out forwards;
+    }
+  }
+}

@@ -2,10 +2,10 @@ import type { RouteRecordRaw } from 'vue-router'
 
 const routes: RouteRecordRaw[] = [
   {
-    path: '/home',
-    component: () => import('@/pages/home/index.vue'),
+    path: '/birthday-01-250102',
+    component: () => import('@/pages/birthday-01-250102/index.vue'),
     meta: {
-      title: '首页'
+      title: '周岁邀请函'
     }
   }
 ]
