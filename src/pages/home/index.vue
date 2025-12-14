@@ -58,9 +58,11 @@ export default defineComponent({
             <div key={item.path} class='route-item' onClick={() => goToPage(item.path)}>
               <div class='route-item-content'>
                 <div class='route-item-image'>
-                  <div class='image-placeholder'>
-                    <div class='image-icon'>📋</div>
-                  </div>
+                  <img
+                    class='image-placeholder'
+                    src={item.meta?.coverUrl || ''}
+                    alt={item.meta?.title || ''}
+                  />
                 </div>
                 <div class='route-item-info'>
                   <h3 class='route-item-title'>{item.meta?.title}</h3>
@@ -178,17 +180,6 @@ export default defineComponent({
   position: absolute;
   top: 0;
   left: 0;
-}
-
-.image-placeholder {
-  text-align: center;
-  color: #666;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
 }
 
 .image-icon {
