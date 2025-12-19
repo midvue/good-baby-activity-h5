@@ -21,7 +21,7 @@ export const useRouterGuard = (router: Router) => {
       // 处理微信环境下的路由
       window.wx.miniProgram.postMessage({
         data: {
-          title,
+          title: query.shareName || title,
           type: 'shareApp',
           shareName: query.shareName,
           coverUrl: to.meta.coverUrl || '',

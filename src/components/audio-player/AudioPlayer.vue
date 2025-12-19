@@ -4,7 +4,7 @@ E
 </template>
 
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, reactive } from 'vue'
+import { onBeforeUnmount, onMounted, reactive } from 'vue'
 import { Howl } from 'howler'
 import { usePageVisibility } from '@mid-vue/use'
 
@@ -23,15 +23,8 @@ const state = reactive({
   isPlaying: false
 })
 
-const urlRef = computed(() => {
-  if (props.url) {
-    return props.url
-  }
-  return $CDN_BASE_URL + props.url
-})
-
 let sound = new Howl({
-  src: [urlRef.value],
+  src: [`${$CDN_BASE_URL}${props.url}`],
   loop: true,
   autoplay: true,
   preload: true,

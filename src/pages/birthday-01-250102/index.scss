@@ -1,25 +1,27 @@
-.home {
+.birthday-01-250102 {
   width: 100%;
   height: 100%;
-  background: linear-gradient(107deg, #d51917 0%, #f4422f 100%);
+  background: url($CDN_BASE_URL + 'birthday-01-250102/bg_main.jpg');
+  background-size: cover;
+  background-position: center;
   overflow: hidden;
-  .home-bg-video {
+  .birthday-bg-video {
     height: 100%;
     width: 100%;
     object-fit: cover;
   }
-  .home-bg-detail {
+  .bg-page1 {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-  .home-btn {
-    width: 235px;
-    height: 54px;
+  .birthday-btn {
+    width: 92px;
+    height: 92px;
     position: absolute;
-    top: 603px;
-    left: calc(50% - 117px);
-    object-fit: cover;
+    top: calc(50% + 88px);
+    left: calc(50% - 46px);
+    object-fit: contain;
     z-index: 9;
     animation: btnMove 1s ease-in-out infinite;
   }
@@ -99,7 +101,7 @@
     }
   }
 
-  .home-landing-page {
+  .birthday-landing-page {
     width: 100%;
     height: 100%;
     position: relative;
@@ -108,104 +110,58 @@
       position: absolute;
       object-fit: cover;
     }
-    .img-fireworks-00 {
-      top: -49px;
-      left: -52px;
-      width: 105px;
-      height: 98px;
-      animation: fireworks-appear 3s ease-in-out infinite;
+
+    .img-title {
+      top: calc(50% - 265px);
+      left: 131px;
+      width: 112px;
+      height: 324px;
+      animation: text-appear 1s ease-out forwards;
     }
+
     .img-fireworks-01 {
-      top: 15px;
-      left: 256px;
-      width: 105px;
-      height: 98px;
-      animation: fireworks-appear 3.5s ease-in-out infinite;
-    }
-    .img-fireworks-02 {
-      top: 99px;
-      left: 8px;
-      width: 172px;
-      height: 161px;
+      top: 120px;
+      left: 20px;
+      width: 112px;
+      height: 112px;
       opacity: 0.5;
       animation: fireworks-appear 4s ease-in-out infinite;
     }
-    .img-fireworks-03 {
-      top: 171px;
-      left: 256px;
-      width: 119px;
-      height: 124px;
+    .img-fireworks-02 {
+      top: 68px;
+      left: 240px;
+      width: 142px;
+      height: 142px;
       animation: fireworks-appear 3.2s ease-in-out infinite;
     }
-    .img-fireworks-04 {
-      top: 421px;
-      left: 16px;
-      width: 133px;
-      height: 124px;
-      animation: fireworks-appear 4.5s ease-in-out infinite;
-    }
 
-    .img-title-01 {
-      top: 66px;
-      left: 62px;
-      width: 251px;
-      height: 64px;
-      z-index: 9;
-      animation: text-appear 1s ease-out forwards;
-    }
-    .img-title-02 {
-      top: 146px;
-      left: 125px;
-      width: 126px;
-      height: 64px;
-      z-index: 9;
-      animation: text-appear 1s ease-out forwards;
-    }
-    .img-cloud-01 {
-      top: 90px;
-      left: 0px;
-      width: 61px;
-      height: 73px;
+    .img-cloud-left-01 {
+      top: 224px;
+      width: 100px;
+      height: 140px;
+      left: -1px;
       z-index: 8;
       animation:
         cloud-move-left 2s ease-in-out forwards,
-        float 5s ease-in-out infinite;
+        float 3s ease-in-out infinite;
     }
-    .img-cloud-02 {
-      top: 165px;
-      left: 252px;
-      width: 62px;
-      height: 66px;
+    .img-cloud-right-01 {
+      top: 185px;
+      left: 282px;
+      width: 100px;
+      height: 140px;
       animation:
         cloud-move-right 2s ease-in-out forwards,
-        float 5s ease-in-out infinite;
+        float 3s ease-in-out infinite;
       z-index: 8;
     }
-    .img-cloud-03 {
-      top: 277px;
-      left: 16px;
-      width: 107px;
-      height: 121px;
-      z-index: 8;
-      animation:
-        cloud-move-left 2s ease-in-out forwards,
-        float 5s ease-in-out infinite;
-    }
-    .img-cloud-04 {
-      top: 390px;
-      left: 243px;
-      width: 117px;
-      height: 124px;
-      z-index: 8;
-      animation:
-        cloud-move-right 2s ease-in-out forwards,
-        float 5s ease-in-out infinite;
-    }
-    .img-first-name {
-      top: 255px;
-      left: 67px;
-      width: 242px;
-      height: 242px;
+    .img-time-address {
+      bottom: 40px;
+      left: 83px;
+      width: 208px;
+      height: 50px;
+      object-fit: contain;
+      z-index: 9;
       animation: text-appear 1s ease-out forwards;
     }
   }

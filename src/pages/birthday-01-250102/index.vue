@@ -1,11 +1,11 @@
 <script lang="tsx">
 import { defineComponent, reactive } from 'vue'
-import { sleep } from '@mid-vue/shared'
 
-import { AudioPlayer } from './components/audio-player'
+import { AudioPlayer } from '@/components/audio-player'
 import { useLandingPage } from './hooks'
 
 export default defineComponent({
+  name: 'Birthday01250102',
   setup() {
     const state = reactive({
       isShowDetail: false,
@@ -13,7 +13,7 @@ export default defineComponent({
     })
 
     const playVideo = () => {
-      const video = document.getElementById('home-bg-video') as HTMLVideoElement
+      const video = document.getElementById('birthday-bg-video') as HTMLVideoElement
       video?.play()
     }
 
@@ -23,14 +23,16 @@ export default defineComponent({
     })
 
     return () => (
-      <div class='home'>
+      <div
+        class='birthday-01-250102'
+        style={{ background: state.isShowCover ? undefined : 'transparent' }}
+      >
         <video
-          autoplay
           muted
           preload='auto'
           controls={false}
-          id='home-bg-video'
-          class='home-bg-video'
+          id='birthday-bg-video'
+          class='birthday-bg-video'
           playsinline={false}
           x5-playsinline={false}
           x5-video-player-start='true'
@@ -40,9 +42,7 @@ export default defineComponent({
           v-show={!state.isShowDetail && !state.isShowCover}
           onEnded={() => {
             console.log('视频播放结束')
-            sleep(300).then(() => {
-              state.isShowDetail = true
-            })
+            state.isShowDetail = true
           }}
           onError={() => {
             console.log('视频播放失败')
@@ -54,17 +54,17 @@ export default defineComponent({
             console.log('视频开始加载')
           }}
         >
-          <source src={$CDN_BASE_URL + 'bg-video.mp4'} type='video/mp4' />
+          <source src={$CDN_BASE_URL + 'birthday-01-250102/bg_video.mp4'} type='video/mp4' />
           不支持视频播放
         </video>
         <img
           v-show={state.isShowDetail}
-          src={$CDN_BASE_URL + 'bg-detail1.jpg'}
+          src={$CDN_BASE_URL + 'birthday-01-250102/bg_page1.jpg'}
           alt=''
-          class='home-bg-detail'
+          class='bg-page1'
         />
 
-        <AudioPlayer />
+        <AudioPlayer url='birthday-01-250102/bg_audio.mp3' />
         {state.isShowCover && renderLandPae()}
       </div>
     )
