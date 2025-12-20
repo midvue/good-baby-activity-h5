@@ -135,6 +135,14 @@
       animation: fireworks-appear 3.2s ease-in-out infinite;
     }
 
+    .img-fireworks-03 {
+      bottom: 130px;
+      left: 262px;
+      width: 100px;
+      height: 100px;
+      animation: fireworks-appear 3.2s ease-in-out infinite;
+    }
+
     .img-cloud-left-01 {
       top: 224px;
       width: 100px;
@@ -155,14 +163,27 @@
         float 3s ease-in-out infinite;
       z-index: 8;
     }
-    .img-time-address {
-      bottom: 40px;
-      left: 83px;
-      width: 208px;
+
+    .landing-address-time {
+      position: absolute;
+      bottom: 88px;
+      left: 80px;
+      width: 220x;
       height: 50px;
       object-fit: contain;
       z-index: 9;
       animation: text-appear 1s ease-out forwards;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-size: 15px;
+      font-weight: bold;
+      color: #fbfec6;
+
+      .landing-time {
+        margin-top: 8px;
+      }
     }
   }
 }
