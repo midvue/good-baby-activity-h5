@@ -23,10 +23,7 @@ export default defineComponent({
     })
 
     return () => (
-      <div
-        class='birthday-01-250102'
-        style={{ background: state.isShowCover ? undefined : 'transparent' }}
-      >
+      <div class='birthday-01-250102'>
         <video
           muted
           preload='auto'
